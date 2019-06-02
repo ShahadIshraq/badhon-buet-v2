@@ -11,7 +11,7 @@ sudo docker build -t badhan:latest .
 
 Then run the container
 ```
-sudo docker run -dt -p 5000:3000 badhan
+sudo docker run -dt -p 3000:3000 badhan
 ```
 
 # How to stop?
