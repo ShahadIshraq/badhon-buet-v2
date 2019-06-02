@@ -1,4 +1,4 @@
-From ubuntu:18.04
+FROM ubuntu:18.04
 
 ARG PACKAGE=badhan
 
@@ -14,9 +14,18 @@ RUN pip3 install setuptools==41.0.1
 # Install packages
 COPY ./server/requirements.txt /tmp/
 RUN cd /tmp && pip3 install -r requirements.txt
+RUN rm -rf /tmp/*
+
+#install nodejs
+RUN apt-get -y install curl
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt -y install nodejs
+ 
+
+ADD ./client/package.json /code/client/
+RUN cd /code/client && npm install
 
 ADD ./ /code/
-RUN rm -rf /tmp/*
 
 WORKDIR /code
 
