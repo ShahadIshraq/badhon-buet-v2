@@ -1,0 +1,17 @@
+.App {
+    text-align: center;
+}
+
+button {
+    text-decoration: none;
+    background: yellowgreen;
+    color: white;
+    padding: 10px 30px;
+    display: inline-block;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.21);
+    border-bottom: 4px solid rgba(0, 0, 0, 0.21);
+    border-radius: 4px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
