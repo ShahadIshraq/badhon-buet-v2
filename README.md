@@ -11,5 +11,16 @@ sudo docker build -t badhan:latest .
 
 Then run the container
 ```
-sudo docker run -p 5000:5000 badhan
+sudo docker run -dt -p 5000:3000 badhan
+```
+
+# How to stop?
+Check which containers are running
+```
+sudo docker ps
+```
+Collect the CONTAINER ID / NAME of the IMAGE **badhan**
+Then stop the container
+```
+sudo docker stop CONTAINER ID / NAME
 ```
