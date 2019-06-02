@@ -11,20 +11,21 @@ RUN apt-get -y install python3
 RUN apt-get -y install python3-pip
 RUN pip3 install setuptools==41.0.1
 
-# Install packages
-COPY ./server/requirements.txt /tmp/
-RUN cd /tmp && pip3 install -r requirements.txt
-RUN rm -rf /tmp/*
-
 #install nodejs
 RUN apt-get -y install curl
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt -y install nodejs
- 
 
+# Install packages for Flask
+COPY ./server/requirements.txt /tmp/
+RUN cd /tmp && pip3 install -r requirements.txt
+RUN rm -rf /tmp/*
+
+# Install packages for React
 ADD ./client/package.json /code/client/
 RUN cd /code/client && npm install
 
+# Copy & Run Code
 ADD ./ /code/
 
 WORKDIR /code
