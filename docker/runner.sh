@@ -2,8 +2,5 @@
 pwd
 cd ./server
 python3 app.py &
-cd ..
-cd ./client
-npm start &
-cd ..
-tail -f /dev/null
+cd ../client
+npm start
